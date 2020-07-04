@@ -34,6 +34,7 @@ app.get('/product', async (req, res) => {
 
   console.log('START query')
   let result = await query("SELECT * FROM product WHERE title = '西裝' lock in share mode")
+  // await query("update product set title = '西裝123' WHERE title = '西裝'")
   console.log('query END')
 
   setTimeout(async ()=>{
