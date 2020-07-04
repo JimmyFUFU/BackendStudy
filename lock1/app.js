@@ -33,9 +33,10 @@ app.get('/product', async (req, res) => {
   console.log('START TRANSACTION')
 
   console.log('START query')
-  let result = await query("SELECT * FROM product WHERE title = '西裝' lock in share mode")
+  let result = await query("SELECT * FROM product WHERE title = '西裝' for update")
+  // let result = await query("SELECT * FROM product WHERE id = 1 lock in share mode")
   // await query("update product set title = '西裝123' WHERE title = '西裝'")
-  console.log('query END')
+  console.log('query END waiting for commit........')
 
   setTimeout(async ()=>{
     await query('COMMIT')

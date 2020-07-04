@@ -35,6 +35,7 @@ app.get('/product', async (req, res) => {
 
   console.log('START query')
   let result = await query("SELECT * FROM product WHERE title = '西裝' for update")
+  // let result = await query("SELECT * FROM product WHERE id = 2 for update")
   console.log('query END')
 
   await query('COMMIT')
